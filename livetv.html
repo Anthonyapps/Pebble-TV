@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pebble Live TV</title>
+
+<style>
+
+body{
+
+    background:#050816;
+    color:white;
+    font-family:Poppins,sans-serif;
+    margin:0;
+}
+
+h1{
+    text-align:center;
+    margin-top:40px;
+}
+
+.channels{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    padding:50px;
+}
+
+.channel{
+    background:#101827;
+    border-radius:20px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.channel img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.channel h2{
+    margin:15px;
+}
+
+.watch-btn{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:12px 30px;
+    background:#00d4ff;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+.back-btn{
+    position:absolute;
+    top:25px;
+    left:30px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    padding:12px 24px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#ff8c00,#ff005d,#00d4ff);
+    transition:.3s;
+}
+
+.back-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px rgba(0,212,255,.5);
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-btn">
+← Back
+</a>
+
+<h1>Live Sports Channels</h1>
+
+<div class="channels">
+
+<div class="channel">
+<img src="ESPN.webp" alt="ESPN">
+<h2>ESPN</h2>
+<a href="Espn.html" class="watch-btn">
+    Watch Channel
+</a>
+</div>
+
+<div class="channel">
+<img src="Dsports.webp" alt="DIRECTV Sports">
+<h2>DIRECTV Sports</h2>
+<a href="Dsports.html" class="watch-btn">
+    Watch Channel
+</a>
+</div>
+
+<div class="channel">
+<img src="Foxsports.webp" alt="FOX Sports">
+<h2>FOX Sports</h2>
+<a href="Foxsports.html" class="watch-btn">
+    Watch Channel
+</a>
+</div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
+</body>
+</html>
