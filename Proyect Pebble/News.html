@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="icon" type="image/x-icon" href="Images/Pebble logo.ico">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pebble News</title>
+
+<style>
+
+body{
+    background:
+    radial-gradient(circle at top left, #0d1020, transparent 40%),
+    radial-gradient(circle at bottom right, #050816, transparent 40%),
+    #000000;
+    color:white;
+}
+/* GRID */
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+    padding:40px 8%;
+}
+
+/* CARD */
+.card{
+    background:#0b0f1a;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    border:1px solid rgba(0,212,255,0.08);
+    transition:0.3s ease;
+}
+
+/* hover */
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 0 25px rgba(0,212,255,0.25),
+               0 0 40px rgba(255,0,93,0.12);
+}
+
+/* image */
+.card img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+/* text */
+.card-content{
+    padding:15px;
+}
+
+.card-content h3{
+    color:#00d4ff;
+    font-size:1.1rem;
+    margin-bottom:8px;
+}
+
+.card-content p{
+    color:#c5c5c5;
+    font-size:0.9rem;
+    line-height:1.4;
+}
+
+/* button */
+.btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:8px 14px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#ff8c00,#ff005d,#00d4ff);
+    color:white;
+    text-decoration:none;
+    font-size:0.85rem;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+/* BACK BUTTON PEBBLE */
+.back-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    padding:10px 16px;
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    font-size:0.85rem;
+    font-weight:600;
+
+    background:linear-gradient(90deg,#ff005d,#00d4ff,#ff8c00);
+    background-size:200%;
+    
+    box-shadow:0 0 15px rgba(0,212,255,0.2);
+    transition:0.3s ease;
+    z-index:9999;
+
+    animation:backGlow 4s linear infinite;
+}
+
+.back-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px rgba(0,212,255,0.4);
+}
+
+/* movimiento del gradiente */
+@keyframes backGlow{
+    0%{background-position:0%;}
+    100%{background-position:200%;}
+}
+
+</style>
+
+</head>
+
+<body>
+    
+<a href="index.html" class="back-btn">⬅ Back</a>    
+
+<!-- CONTENEDOR NOTICIAS -->
+<section class="news-grid" id="newsGrid"></section>
+
+<script>
+const apiKey = "2f2ab4eea79088385db2661f1dbb1584";
+
+async function loadNews(){
+    const url = `https://gnews.io/api/v4/search?q=sports&lang=en&max=9&apikey=${apiKey}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const grid = document.getElementById("newsGrid");
+    grid.innerHTML = "";
+
+    data.articles.forEach((article, index) => {
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // animación entrada
+        card.style.opacity = "0";
+        card.style.transform = "translateY(20px)";
+
+        setTimeout(() => {
+            card.style.transition = "0.5s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+        }, index * 120);
+
+        card.innerHTML = `
+            <img src="${article.image || 'Images/PEBBLE.png'}">
+            <div class="card-content">
+                <h3>${article.title}</h3>
+                <p>${article.description || ''}</p>
+                <a href="${article.url}" target="_blank" class="btn">Read More</a>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+loadNews();
+</script>
+
+</body>
+</html>

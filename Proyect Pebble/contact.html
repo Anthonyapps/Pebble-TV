@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head><link rel="icon" type="image/x-icon" href="Images/Pebble logo.ico">   
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pebble | Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:rgba(5,8,22,.90);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:60px;
+}
+
+.logo h2{
+font-size:32px;
+font-weight:800;
+}
+
+.back{
+text-decoration:none;
+color:white;
+padding:12px 25px;
+border-radius:30px;
+background:linear-gradient(90deg,#ff8c00,#ff005d,#00d4ff);
+font-weight:600;
+transition:.3s;
+}
+
+.back:hover{
+transform:scale(1.05);
+}
+
+.hero{
+padding-top:140px;
+padding-bottom:70px;
+text-align:center;
+background:
+radial-gradient(circle at left,#8f00ff40 0%,transparent 35%),
+radial-gradient(circle at right,#00ff8840 0%,transparent 35%),
+#050816;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.hero span{
+background:linear-gradient(90deg,#ff8c00,#ff005d,#00d4ff,#00ff88);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:1.2rem;
+color:#d0d0d0;
+}
+
+.section{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:60px 0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.card{
+background:#101827;
+padding:30px;
+border-radius:20px;
+}
+
+.card h2{
+margin-bottom:20px;
+color:#00d4ff;
+}
+
+.card p{
+margin-bottom:15px;
+color:#d5d5d5;
+line-height:1.8;
+}
+
+input,textarea{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:#1a2438;
+color:white;
+font-size:16px;
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+button{
+margin-top:20px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:linear-gradient(90deg,#ff8c00,#ff005d,#00d4ff);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+footer{
+margin-top:60px;
+background:#090d1f;
+padding:35px;
+text-align:center;
+color:#aaa;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+<img src="Images/PEBBLE.png">
+<h2>PEBBLE</h2>
+</div>
+
+<a href="index.html" class="back">← Back</a>
+
+</nav>
+
+<section class="hero">
+
+<h1>Contact <span>Pebble</span></h1>
+
+<p>
+We are always here to help! Contact our support team, share your ideas, or ask any questions about Pebble Sports and Pebble TV.
+</p>
+
+</section>
+
+<section class="section">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>📞 Customer Support</h2>
+
+<p>📧 supportpebble1@gmail.com</p>
+
+<p>🌍 https://pebble-tv.vercel.app/</p>
+
+<p>🕒 Available 24 Hours a Day</p>
+
+<p>⚡ Average response time: Less than 24 hours.</p>
+
+<p>📞 Phone Number: International Number: +1 (401) 442-9150, Peruvian Number: +51 923-442-526.</p>
+
+</div>
+
+<div class="card">
+
+<h2>💬 Send us a Message</h2>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea placeholder="Write your message here..."></textarea>
+
+<button>Send Message</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="card">
+
+<h2>🏆 Fun Sports Facts</h2>
+
+<p>⚽ Football has more than 3.5 billion fans worldwide.</p>
+
+<p>🏀 The NBA is broadcast in over 200 countries.</p>
+
+<p>🏎 Formula 1 cars can reach speeds above 350 km/h.</p>
+
+<p>📺 Pebble brings sports news and live channels together in one place.</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 style="text-align:center;font-size:2.8rem;margin-bottom:40px;">
+Sports Gallery
+</h2>
+
+<div class="gallery">
+
+<img src="Images/Image 1 Contact.png">
+
+<img src="Images/Image 2 Contact.png">
+
+<img src="Images/Image 3 Contact.png">
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Pebble Sports | News | Always With You</p>
+
+</footer>
+
+</body>
+</html>
