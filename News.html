@@ -1,20 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><link rel="icon" type="image/x-icon" href="Pebble logo.ico">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pebble News</title>
-
 <style>
+.back-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    z-index:9999;
 
-body{
-    background:
-    radial-gradient(circle at top left, #0d1020, transparent 40%),
-    radial-gradient(circle at bottom right, #050816, transparent 40%),
-    #000000;
+    padding:10px 16px;
+    border-radius:25px;
+
+    text-decoration:none;
     color:white;
+    font-weight:600;
+    font-size:0.85rem;
+
+    background:linear-gradient(90deg,#ff005d,#00d4ff,#ff8c00);
+    background-size:200%;
+
+    box-shadow:0 0 15px rgba(0,212,255,0.25);
+
+    transition:0.3s ease;
+
+    animation:glowMove 4s linear infinite;
 }
+
+.back-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px rgba(0,212,255,0.4);
+}
+
+@keyframes glowMove{
+    0%{background-position:0%;}
+    100%{background-position:200%;}
+}
+body{
+    margin:0;
+    font-family:Poppins, sans-serif;
+    color:white;
+
+    background:
+    radial-gradient(circle at top left, #0d1020, transparent 45%),
+    radial-gradient(circle at top right, #00d4ff22, transparent 40%),
+    radial-gradient(circle at bottom left, #ff005d22, transparent 40%),
+    #050816;
+}
+
 /* GRID */
 .news-grid{
     display:grid;
@@ -25,115 +54,104 @@ body{
 
 /* CARD */
 .card{
-    background:#0b0f1a;
+    background:rgba(10,14,28,0.85);
     border-radius:18px;
     overflow:hidden;
-    box-shadow:0 0 20px rgba(0,0,0,0.6);
-    border:1px solid rgba(0,212,255,0.08);
-    transition:0.3s ease;
+
+    border:1px solid rgba(0,212,255,0.15);
+
+    box-shadow:
+    0 0 15px rgba(0,0,0,0.6),
+    0 0 25px rgba(0,212,255,0.08);
+
+    backdrop-filter: blur(10px);
+
+    transition:0.4s ease;
+
+    opacity:0;
+    transform:translateY(20px);
 }
 
-/* hover */
+/* hover EPIC */
 .card:hover{
     transform:translateY(-10px) scale(1.02);
-    box-shadow:0 0 25px rgba(0,212,255,0.25),
-               0 0 40px rgba(255,0,93,0.12);
+
+    box-shadow:
+    0 0 25px rgba(0,212,255,0.25),
+    0 0 40px rgba(255,0,93,0.18),
+    0 0 60px rgba(255,140,0,0.12);
 }
 
-/* image */
+/* IMAGE */
 .card img{
     width:100%;
     height:190px;
     object-fit:cover;
-    transition:0.4s;
+
+    filter:contrast(1.1) saturate(1.2);
+    transition:0.4s ease;
 }
 
 .card:hover img{
     transform:scale(1.08);
+    filter:contrast(1.2) saturate(1.5);
 }
 
-/* text */
+/* CONTENT */
 .card-content{
     padding:15px;
 }
 
+/* TITLE */
 .card-content h3{
-    color:#00d4ff;
-    font-size:1.1rem;
+    font-size:1.05rem;
     margin-bottom:8px;
+
+    background:linear-gradient(90deg,#00d4ff,#ff005d,#ff8c00);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
+/* TEXT */
 .card-content p{
     color:#c5c5c5;
     font-size:0.9rem;
     line-height:1.4;
 }
 
-/* button */
+/* BUTTON */
 .btn{
     display:inline-block;
     margin-top:12px;
     padding:8px 14px;
     border-radius:20px;
-    background:linear-gradient(90deg,#ff8c00,#ff005d,#00d4ff);
+
+    background:linear-gradient(90deg,#ff005d,#00d4ff,#ff8c00);
+    background-size:200%;
+
     color:white;
     text-decoration:none;
     font-size:0.85rem;
-    transition:0.3s;
+
+    transition:0.4s ease;
 }
 
 .btn:hover{
     transform:scale(1.05);
-}
-/* BACK BUTTON PEBBLE */
-.back-btn{
-    position:fixed;
-    top:15px;
-    left:15px;
-    padding:10px 16px;
-    border-radius:25px;
-    text-decoration:none;
-    color:white;
-    font-size:0.85rem;
-    font-weight:600;
-
-    background:linear-gradient(90deg,#ff005d,#00d4ff,#ff8c00);
-    background-size:200%;
-    
-    box-shadow:0 0 15px rgba(0,212,255,0.2);
-    transition:0.3s ease;
-    z-index:9999;
-
-    animation:backGlow 4s linear infinite;
-}
-
-.back-btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 25px rgba(0,212,255,0.4);
-}
-
-/* movimiento del gradiente */
-@keyframes backGlow{
-    0%{background-position:0%;}
-    100%{background-position:200%;}
+    background-position:100%;
+    box-shadow:0 0 20px rgba(0,212,255,0.3);
 }
 
 </style>
-
-</head>
-
-<body>
-    
-<a href="index.html" class="back-btn">⬅ Back</a>    
-
-<!-- CONTENEDOR NOTICIAS -->
 <section class="news-grid" id="newsGrid"></section>
-
+<a href="index.html" class="back-btn">⬅ Back</a>
 <script>
-const apiKey = "2f2ab4eea79088385db2661f1dbb1584";
+    
+const apiKey = "pub_fa718e01c2f64a588447710f76edadb0";
 
 async function loadNews(){
-    const url = `https://gnews.io/api/v4/search?q=sports&lang=en&max=9&apikey=${apiKey}`;
+
+    const url = `https://newsdata.io/api/1/latest?apikey=${apiKey}&q=sports&language=en`;
 
     const res = await fetch(url);
     const data = await res.json();
@@ -141,36 +159,37 @@ async function loadNews(){
     const grid = document.getElementById("newsGrid");
     grid.innerHTML = "";
 
-    data.articles.forEach((article, index) => {
+    if(!data.results){
+        grid.innerHTML = "<p>No news found ⚠️</p>";
+        return;
+    }
+
+    data.results.forEach((article, i) => {
 
         const card = document.createElement("div");
         card.classList.add("card");
 
-        // animación entrada
-        card.style.opacity = "0";
-        card.style.transform = "translateY(20px)";
-
-        setTimeout(() => {
-            card.style.transition = "0.5s ease";
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-        }, index * 120);
-
         card.innerHTML = `
-            <img src="${article.image || 'Images/PEBBLE.png'}">
+            <img src="${article.image_url || 'Images/PEBBLE.png'}">
             <div class="card-content">
                 <h3>${article.title}</h3>
                 <p>${article.description || ''}</p>
-                <a href="${article.url}" target="_blank" class="btn">Read More</a>
+                <a href="${article.link}" target="_blank" class="btn">Read More</a>
             </div>
         `;
 
         grid.appendChild(card);
+
+        setTimeout(()=>{
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+        }, i * 120);
     });
 }
 
 loadNews();
-</script>
 
-</body>
-</html>
+
+/* 🔥 AUTO UPDATE (esto es lo que hace que sea “vivo”) */
+setInterval(loadNews, 60000);
+</script>
